@@ -1,0 +1,10 @@
+{
+    "prefix": ">",
+    "commands": [
+        {
+            "hey": "Hello",
+            "event": "Test-event",
+            "jokes": "function"
+        }
+    ]
+}
