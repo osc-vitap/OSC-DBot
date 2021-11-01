@@ -19,7 +19,7 @@ async def oscEventNotif():
     with open ('data.json', 'r') as f:
         local_data = json.load(f)
     if(local_data['eventID'] == event_data[-1]['_id']):
-        print("No new events")
+        print("SERVER LOGS: No new event today")
     else:
         local_data['eventID'] = event_data[-1]['_id']
         with open('data.json', 'w') as f:
@@ -52,8 +52,4 @@ async def oscEventNotif():
             inline=True)
         
         await message_channel.send(embed=embed)
-        print("Notif sent")
-
-## For testing
-# oscEventNotif.start()
-# bot.run(TOKEN)
+        print("SERVER LOGS: Notification sent")

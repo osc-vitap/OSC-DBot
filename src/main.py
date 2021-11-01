@@ -20,5 +20,5 @@ if __name__ == "__main__":
         response = commands(message.content)
         await message.channel.send(response)
 
+    oscEventNotif.start()
     client.run(TOKEN)
-    bot.run(TOKEN)
