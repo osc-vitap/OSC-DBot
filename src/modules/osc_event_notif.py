@@ -26,11 +26,34 @@ async def oscEventNotif():
             json.dump(local_data, f, indent=4, separators=(',', ': '))
         
         event = event_data[-1]
-
         message_channel = bot.get_channel(904455110212591676)
-        embed=discord.Embed(title="Title", url="https://google.com/", description="Desc", color=0xFF5733)
+        embed = discord.Embed(
+            title=event['title'], 
+            url="https://oscvitap.org/", 
+            description=event['description'], 
+            color=discord.Color.blue()
+            )
+
+        embed.set_author(
+            name="Vijay", 
+            url="https://github.com/SVijayB", 
+            icon_url="https://avatars.githubusercontent.com/svijayb"
+            )
+
+        embed.add_field(
+            name="Event Mode", 
+            value=event['eventMode'], 
+            inline=True)
+
+        date = event['date'].split('T')[0]
+        embed.add_field(
+            name="Date and Time", 
+            value=date, 
+            inline=True)
+        
         await message_channel.send(embed=embed)
         print("Notif sent")
 
-oscEventNotif.start()
-bot.run(TOKEN)
+## For testing
+# oscEventNotif.start()
+# bot.run(TOKEN)

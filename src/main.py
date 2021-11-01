@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from modules.utils import commands
+from modules.osc_event_notif import *
 import discord
 import os
 
@@ -20,3 +21,4 @@ if __name__ == "__main__":
         await message.channel.send(response)
 
     client.run(TOKEN)
+    bot.run(TOKEN)
