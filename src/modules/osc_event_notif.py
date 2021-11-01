@@ -9,7 +9,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='>')
 
-@tasks.loop(seconds=10)
+@tasks.loop(hours=24)
 async def oscEventNotif():
     url = os.getenv('API')
     response = urlopen(url)
