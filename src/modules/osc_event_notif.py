@@ -8,9 +8,10 @@ import os
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='>')
+client = discord.Client()
 
-@tasks.loop(hours=24)
-async def oscEventNotif():
+@tasks.loop(hours=12)
+async def oscEventNotif(message_channel):
     url = os.getenv('API')
     response = urlopen(url)
 
@@ -18,19 +19,18 @@ async def oscEventNotif():
 
     with open ('data.json', 'r') as f:
         local_data = json.load(f)
-    if(local_data['eventID'] == event_data[-1]['_id']):
-        print("SERVER LOGS: No new event today")
+    if(local_data['eventID'] == event_data['id']):
+        print("SERVER LOGS: NO NEW EVENT FOUND")
     else:
-        local_data['eventID'] = event_data[-1]['_id']
+        local_data['eventID'] = event_data['id']
         with open('data.json', 'w') as f:
             json.dump(local_data, f, indent=4, separators=(',', ': '))
         
-        event = event_data[-1]
-        message_channel = bot.get_channel(904455110212591676)
+        event = event_data
         embed = discord.Embed(
-            title=event['title'], 
-            url="https://oscvitap.org/", 
-            description=event['description'], 
+            title=event['eventName'], 
+            url=event['eventURL'], 
+            description=event['eventDescription'], 
             color=discord.Color.blue()
             )
 
@@ -42,14 +42,13 @@ async def oscEventNotif():
 
         embed.add_field(
             name="Event Mode", 
-            value=event['eventMode'], 
+            value=event['eventVenue'], 
             inline=True)
 
-        date = event['date'].split('T')[0]
         embed.add_field(
             name="Date and Time", 
-            value=date, 
+            value=event['eventDate'], 
             inline=True)
         
         await message_channel.send(embed=embed)
-        print("SERVER LOGS: Notification sent")
+        print("SERVER LOGS: EVENT ALERT SENT")

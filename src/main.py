@@ -12,6 +12,8 @@ if __name__ == "__main__":
     @client.event
     async def on_ready():
         print(f'{client.user} has connected to Discord!')
+        message_channel = client.get_channel(904455110212591676)
+        oscEventNotif.start(message_channel)
 
     @client.event
     async def on_message(message):
@@ -21,5 +23,4 @@ if __name__ == "__main__":
         if response:
             await message.channel.send(response)
 
-    oscEventNotif.start()
     client.run(TOKEN)
