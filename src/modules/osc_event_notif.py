@@ -1,6 +1,6 @@
+from discord.ext import tasks, commands
 from urllib.request import urlopen
 from dotenv import load_dotenv
-from discord.ext import tasks, commands
 import discord
 import json
 import os

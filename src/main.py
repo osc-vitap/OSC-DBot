@@ -1,6 +1,6 @@
-from dotenv import load_dotenv
-from modules.utils import commands
 from modules.osc_event_notif import *
+from modules.utils import commands
+from dotenv import load_dotenv
 import discord
 import os
 
@@ -18,7 +18,8 @@ if __name__ == "__main__":
         if message.author == client.user:
             return
         response = commands(message.content)
-        await message.channel.send(response)
+        if response:
+            await message.channel.send(response)
 
     oscEventNotif.start()
     client.run(TOKEN)
