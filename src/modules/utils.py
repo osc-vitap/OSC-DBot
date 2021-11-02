@@ -10,4 +10,4 @@ def commands(message):
         if message == prefix + temp:
             response = data["commands"][0][temp]
             return response
-    return response
+    return ""
