@@ -66,8 +66,7 @@ async def oscEventNotif(message_channel):
             inline=True
         )
 
-        img = "https://drive.google.com/uc?export=view&id={}".format(str(event['eventLogo'].split("/")[5]))
-        embed.set_image(url=img)
+        embed.set_image(url=event['eventLogo'])
 
         embed.set_footer(text=event['eventCaption'], icon_url="https://i.ibb.co/rFv3nXZ/001-like.png")
         
