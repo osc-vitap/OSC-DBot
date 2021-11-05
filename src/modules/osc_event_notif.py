@@ -71,5 +71,5 @@ async def oscEventNotif(message_channel):
 
         embed.set_footer(text=event['eventCaption'], icon_url="https://i.ibb.co/rFv3nXZ/001-like.png")
         
-        await message_channel.send(embed=embed)
+        await message_channel.send("@everyone", embed=embed)
         print("SERVER LOGS: EVENT ALERT SENT")

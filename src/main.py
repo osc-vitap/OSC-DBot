@@ -13,6 +13,8 @@ if __name__ == "__main__":
     async def on_ready():
         print(f"{client.user} has connected to Discord!")
         message_channel = client.get_channel(904455110212591676)
+        activity = discord.Activity(type=discord.ActivityType.listening, name=">help")
+        await client.change_presence(activity=activity)
         oscEventNotif.start(message_channel)
 
     @client.event
