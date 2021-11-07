@@ -1,4 +1,5 @@
 from discord.client import Client
+from modules.commands.jokes import jokes
 from modules.osc_event_notif import command_event
 import json
 
@@ -25,7 +26,8 @@ class commands:
             return ""
         else:
             # Serving message request
-            message = message[1:]  # Removing prefix after validation
+            input_data = message.strip().split(" ")
+            message = input_data[0][1:]  # Removing prefix after validation
             message_request = data["commands"][0]["Messages"]
             if message in message_request.keys():
                 response = commands.message(message, message_request)
@@ -33,7 +35,7 @@ class commands:
             # Checking if command
             command_request = data["commands"][0]["Commands"]
             if message in command_request:
-                response = commands.functions(message)
+                response = commands.functions(input_data, message)
         return response
 
     def message(message, message_request):
@@ -42,7 +44,14 @@ class commands:
                 response = message_request[key]
                 return response
 
-    def functions(message):
+    def functions(input_data, message):
+        response = "No command found. Use !help for more details"
         if message == "event":
             response = command_event()
-            return response
+        elif message == "joke":
+            try:
+                arg = input_data[1]
+            except:
+                arg = ""
+            response = jokes(arg)
+        return response

@@ -8,7 +8,7 @@
             },
             "Commands": [
                 "event",
-                "jokes",
+                "joke",
                 "quotes",
                 "memes",
                 "help",
