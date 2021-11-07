@@ -1,5 +1,6 @@
 from modules.osc_event_notif import command_event
 from modules.commands.fun import *
+from modules.commands.details import *
 from discord.client import Client
 import json
 
@@ -64,11 +65,9 @@ class commands:
         elif message == "meme":
             response = fun.memes()
         elif message == "help":
-            response = help()
+            response = details.help()
         elif message == "contact":
-            response = contact()
-        elif message == "ping":
-            response = "ping"
+            response = details.contact()
         elif message == "info":
-            response = info()
+            response = details.info()
         return response
