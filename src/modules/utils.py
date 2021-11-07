@@ -1,6 +1,5 @@
 from modules.osc_event_notif import command_event
-from modules.commands.quotes import quotes
-from modules.commands.jokes import jokes
+from modules.commands.fun import *
 from discord.client import Client
 import json
 
@@ -59,7 +58,17 @@ class commands:
                 arg = input_data[1]
             except:
                 arg = ""
-            response = jokes(arg)
+            response = fun.jokes(arg)
         elif message == "quote":
-            response = quotes()
+            response = fun.quotes()
+        elif message == "meme":
+            response = fun.memes()
+        elif message == "help":
+            response = help()
+        elif message == "contact":
+            response = contact()
+        elif message == "ping":
+            response = "ping"
+        elif message == "info":
+            response = info()
         return response

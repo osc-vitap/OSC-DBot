@@ -3,14 +3,14 @@
     "commands": [
         {
             "Messages": {
-                "hey": "Hello!",
+                "hey": "Hello there!",
                 "sup": "Serving your requests"
             },
             "Commands": [
                 "event",
                 "joke",
                 "quote",
-                "memes",
+                "meme",
                 "help",
                 "contact",
                 "ping",
