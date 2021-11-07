@@ -1,6 +1,7 @@
 from discord.ext import tasks, commands
 from urllib.request import urlopen
 from datetime import datetime
+import pyshorteners
 import discord
 import json
 
@@ -21,6 +22,14 @@ async def news_updates(news_channel):
 
             embed.set_author(
                 name="inshorts"
+                )
+
+            shortener = pyshorteners.Shortener()
+            short_url = shortener.owly.short(data[i]['readMoreUrl'])
+
+            embed.add_field(
+                name="📰   Read more at ", 
+                value=short_url, 
                 )
 
             embed.set_image(url=data[i]['imageUrl'])
