@@ -1,6 +1,7 @@
-from discord.client import Client
-from modules.commands.jokes import jokes
 from modules.osc_event_notif import command_event
+from modules.commands.quotes import quotes
+from modules.commands.jokes import jokes
+from discord.client import Client
 import json
 
 
@@ -28,7 +29,7 @@ class commands:
             message = message.lower()
             input_data = message.strip().split(" ")
             message = input_data[0][1:]  # Removing prefix after validation
-            
+
             # Validating message
             message_request = data["commands"][0]["Messages"]
             if message in message_request.keys():
@@ -56,4 +57,6 @@ class commands:
             except:
                 arg = ""
             response = jokes(arg)
+        elif message == "quote":
+            response = quotes()
         return response

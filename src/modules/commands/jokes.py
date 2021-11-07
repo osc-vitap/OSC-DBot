@@ -31,5 +31,7 @@ def jokes(arg):
             color=discord.Color.blue(),
             timestamp=datetime.utcnow(),
         )
-        embed.add_field(name=joke_data["setup"], value=joke_data["delivery"], inline=False)
+        embed.add_field(
+            name=joke_data["setup"], value=joke_data["delivery"], inline=False
+        )
     return embed
