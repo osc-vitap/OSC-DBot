@@ -13,7 +13,7 @@ client = discord.Client()
 
 @tasks.loop(hours=12)
 async def oscEventNotif(message_channel):
-    url = os.getenv('API')
+    url = os.getenv('OSC_API')
     response = urlopen(url)
 
     event_data = json.loads(response.read())
