@@ -15,6 +15,11 @@ class commands:
             data = json.load(f)
         response = "No command found. Use !help for more details"
         prefix = data["prefix"]
+        message = message.lower()
+        input_data = message.strip().split(" ")
+
+        if message in ["f", "bruh", "lol", "scam"]:
+            return message.capitalize()
 
         # Checking if command follows proper syntax
         # If the message doesn't start with prefix
@@ -26,8 +31,6 @@ class commands:
         ):
             return ""
         else:
-            message = message.lower()
-            input_data = message.strip().split(" ")
             message = input_data[0][1:]  # Removing prefix after validation
 
             # Validating message

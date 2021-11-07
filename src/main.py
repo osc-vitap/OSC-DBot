@@ -2,7 +2,6 @@ from modules.osc_event_notif import *
 from modules.news_updates import *
 from modules.utils import *
 from dotenv import load_dotenv
-import time
 import discord
 import os
 
