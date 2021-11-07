@@ -13,7 +13,7 @@ client = discord.Client()
 
 @tasks.loop(hours=12)
 async def oscEventNotif(message_channel):
-    url = os.getenv('OSC_API')
+    url = "https://osc-api.herokuapp.com/event/latest"
     response = urlopen(url)
 
     event_data = json.loads(response.read())

@@ -1,5 +1,5 @@
 from modules.osc_event_notif import *
-from modules.utils import commands
+from modules.utils import *
 from dotenv import load_dotenv
 import discord
 import os
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     async def on_message(message):
         if message.author == client.user:
             return
-        response = commands(message.content)
+        response = commands.commands(message.content)
         if response:
             await message.channel.send(response)
 
