@@ -28,7 +28,9 @@ if __name__ == "__main__":
         if message.author == client.user:
             return
         response = commands.validate(message.content)
-        if response:
+        if type(response) == discord.embeds.Embed:
+            await message.channel.send(embed=response)
+        elif response:
             await message.channel.send(response)
 
     client.run(TOKEN)  # run discord client

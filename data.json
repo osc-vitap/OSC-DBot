@@ -1,10 +1,10 @@
 {
     "prefix": ">",
     "commands": [
-            {
+        {
             "Messages": {
                 "hey": "Hello!",
-                "sup": "Serving your requests" 
+                "sup": "Serving your requests"
             },
             "Commands": [
                 "event",
@@ -12,7 +12,9 @@
                 "quotes",
                 "memes",
                 "help",
-                "contact"
+                "contact",
+                "ping",
+                "info"
             ]
         }
     ],
