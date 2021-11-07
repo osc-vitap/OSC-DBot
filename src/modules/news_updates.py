@@ -25,7 +25,7 @@ async def news_updates(news_channel):
                 )
 
             shortener = pyshorteners.Shortener()
-            short_url = shortener.owly.short(data[i]['readMoreUrl'])
+            short_url = shortener.tinyurl.short(data[i]['readMoreUrl'])
 
             embed.add_field(
                 name="📰   Read more at ", 
