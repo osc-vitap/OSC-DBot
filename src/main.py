@@ -20,14 +20,14 @@ if __name__ == "__main__":
         message_channel = client.get_channel(904455110212591676)
         oscEventNotif.start(message_channel)
 
-        news_channel = client.get_channel(904455110212591676)
-        news_updates.start(news_channel)
+        # news_channel = client.get_channel(904455110212591676)
+        # news_updates.start(news_channel)
 
     @client.event
     async def on_message(message):
         if message.author == client.user:
             return
-        response = commands.commands(message.content)
+        response = commands.validate(message.content)
         if response:
             await message.channel.send(response)
 

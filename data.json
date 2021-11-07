@@ -1,10 +1,19 @@
 {
     "prefix": ">",
     "commands": [
-        {
-            "hey": "Hello",
-            "event": "Test-event",
-            "jokes": "function"
+            {
+            "Messages": {
+                "hey": "Hello!",
+                "sup": "Serving your requests" 
+            },
+            "Commands": [
+                "event",
+                "jokes",
+                "quotes",
+                "memes",
+                "help",
+                "contact"
+            ]
         }
     ],
     "eventID": 40
