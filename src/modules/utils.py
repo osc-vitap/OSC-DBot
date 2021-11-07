@@ -25,9 +25,11 @@ class commands:
         ):
             return ""
         else:
-            # Serving message request
+            message = message.lower()
             input_data = message.strip().split(" ")
             message = input_data[0][1:]  # Removing prefix after validation
+            
+            # Validating message
             message_request = data["commands"][0]["Messages"]
             if message in message_request.keys():
                 response = commands.message(message, message_request)
