@@ -13,7 +13,7 @@ client = discord.Client()
 
 @tasks.loop(hours=12)
 async def oscEventNotif(message_channel):
-    url = os.getenv('API')
+    url = "https://osc-api.herokuapp.com/event/latest"
     response = urlopen(url)
 
     event_data = json.loads(response.read())
@@ -69,6 +69,7 @@ async def oscEventNotif(message_channel):
         embed.set_image(url=event['eventLogo'])
 
         embed.set_footer(text=event['eventCaption'], icon_url="https://i.ibb.co/rFv3nXZ/001-like.png")
+        response.close()
         
         await message_channel.send("@everyone", embed=embed)
         print("SERVER LOGS: EVENT ALERT SENT")
