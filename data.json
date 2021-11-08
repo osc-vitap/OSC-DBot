@@ -1,12 +1,12 @@
 {
     "prefix": ">",
-    "commands": [
+    "utils": [
         {
-            "Messages": {
+            "messages": {
                 "hey": "Hello there!",
                 "sup": "Serving your requests"
             },
-            "Commands": [
+            "commands": [
                 "event",
                 "joke",
                 "quote",
