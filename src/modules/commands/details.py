@@ -5,7 +5,7 @@ class details:
     def contact():
         data = "Hey! OSC-DBot was made with **love** ❤️ by two developers from the **Open Source Community VIT-AP**"
         embed = discord.Embed(
-            title="📧  Contact details",
+            title="👋  Contact details",
             description=data,
             color=discord.Color.green(),
         )
@@ -25,7 +25,21 @@ class details:
         return embed
 
     def info():
-        pass
+        data = """**OSC-DBot** was a fun project built for the Open Source Community VIT-AP.
+        It was built to **automate** several of the communities tasks on discord,
+        And act as a single hub to keep the community entertained on it's online medium."""
+        embed = discord.Embed(
+            title="💬  Information",
+            description=data,
+            color=discord.Color.green(),
+        )
+        embed.add_field(
+            name="GitHub Link",
+            value="https://github.com/SVijayB/OSC-DBot",
+            inline=False,
+        )
+        embed.set_footer(text="For more details go through the readme file.")
+        return embed
 
     def help():
         pass
