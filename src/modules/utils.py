@@ -18,7 +18,7 @@ class commands:
         message = message.lower()
         input_data = message.strip().split(" ")
 
-        if message in ["f", "bruh", "lol", "scam"]:
+        if message in ["f", "bruh", "lol", "scam", "sus"]:
             return message.capitalize()
 
         # Checking if command follows proper syntax
@@ -34,12 +34,12 @@ class commands:
             message = input_data[0][1:]  # Removing prefix after validation
 
             # Validating message
-            message_request = data["commands"][0]["Messages"]
+            message_request = data["utils"][0]["messages"]
             if message in message_request.keys():
                 response = commands.message(message, message_request)
 
             # Checking if command
-            command_request = data["commands"][0]["Commands"]
+            command_request = data["utils"][0]["commands"]
             if message in command_request:
                 response = commands.functions(input_data, message)
         return response
