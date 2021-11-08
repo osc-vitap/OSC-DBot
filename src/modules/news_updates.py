@@ -6,7 +6,7 @@ import discord
 import json
 
 
-@tasks.loop(hours=12)
+@tasks.loop(hours=2)
 async def news_updates(news_channel):
     urls = ["https://inshortsapi.vercel.app/news?category=technology"]
 
