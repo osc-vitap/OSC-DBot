@@ -3,11 +3,10 @@ from modules.news_updates import *
 from modules.utils import *
 from dotenv import load_dotenv
 import discord
-import os
+from os import getenv
 
 if __name__ == "__main__":
-    load_dotenv()  # load .env file
-    TOKEN = os.getenv("DISCORD_TOKEN")
+    TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
     @client.event

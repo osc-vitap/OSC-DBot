@@ -4,10 +4,9 @@ from dotenv import load_dotenv
 from datetime import datetime
 import discord
 import json
-import os
+from os import getenv
 
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = getenv("DISCORD_TOKEN")
 bot = commands.Bot(command_prefix=">")
 client = discord.Client()
 

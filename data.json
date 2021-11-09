@@ -1,13 +1,21 @@
 {
-  "prefix": ">",
-  "utils": [
-    {
-      "messages": {
-        "hey": "Hello there!",
-        "sup": "Serving your requests"
-      },
-      "commands": ["event", "joke", "quote", "meme", "help", "contact", "info"]
-    }
-  ],
-  "eventID": 40
+    "prefix": ">",
+    "utils": [
+        {
+            "messages": {
+                "hey": "Hello there!",
+                "sup": "Serving your requests"
+            },
+            "commands": [
+                "event",
+                "joke",
+                "quote",
+                "meme",
+                "help",
+                "contact",
+                "info"
+            ]
+        }
+    ],
+    "eventID": 40
 }

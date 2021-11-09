@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from datetime import datetime
 import discord
+import random
 import json
 
 
@@ -51,4 +52,18 @@ class fun:
         return embed
 
     def memes():
-        pass
+        urls = [
+            "https://meme-api.herokuapp.com/gimme/",
+            "https://meme-api.herokuapp.com/gimme/ProgrammerHumor",
+        ]
+        response = urlopen(random.choice(urls))
+        data = json.loads(response.read())
+
+        embed = discord.Embed(
+            title="😾  Memes",
+            url=data["postLink"],
+            description="Subreddit | " + data["subreddit"],
+            color=discord.Color.blue(),
+        )
+        embed.set_image(url=data["preview"][-1])
+        return embed
