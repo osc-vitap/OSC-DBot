@@ -1,7 +1,6 @@
 from modules.osc_event_notif import command_event
 from modules.commands.fun import *
 from modules.commands.details import *
-from modules.commands.vc_commands import *
 from discord.client import Client
 import json
 
@@ -40,7 +39,9 @@ class commands:
                 response = commands.message(message, message_request)
 
             # Checking if command
-            command_request = data["utils"][0]["commands"]
+            command_request = {}
+            command_request.update(data["utils"][0]["functions_without_args"])
+            command_request.update(data["utils"][0]["functions_with_args"])
             if message in command_request:
                 response = commands.functions(message, input_data)
         return response
@@ -55,23 +56,14 @@ class commands:
         with open("data.json", "r") as f:
             data = json.load(f)
         response = f"No command found. Use {data['prefix']}help for more details"
-        functions_without_args = {
-            "event": command_event,
-            "quote": fun.quotes,
-            "meme": fun.memes,
-            "help": details.help,
-            "contact": details.contact,
-            "info": details.info,
-        }
-        functions_with_args = {
-            "joke": fun.jokes,
-        }
+        functions_without_args = data["utils"][0]["functions_without_args"]
+        functions_with_args = data["utils"][0]["functions_with_args"]
 
         if message in functions_without_args.keys():
-            operation = functions_without_args[message]
+            operation = eval(functions_without_args[message])
             response = operation()
         else:
-            operation = functions_with_args[message]
+            operation = eval(functions_with_args[message])
             response = operation(input_data)
 
         return response
