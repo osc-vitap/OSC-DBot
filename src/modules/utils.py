@@ -42,7 +42,7 @@ class commands:
             # Checking if command
             command_request = data["utils"][0]["commands"]
             if message in command_request:
-                response = commands.functions(input_data, message)
+                response = commands.functions(message, input_data)
         return response
 
     def message(message, message_request):
@@ -51,22 +51,27 @@ class commands:
                 response = message_request[key]
                 return response
 
-    def functions(input_data, message):
+    def functions(message, input_data):
         with open("data.json", "r") as f:
             data = json.load(f)
         response = f"No command found. Use {data['prefix']}help for more details"
-        if message == "event":
-            response = command_event()
-        elif message == "joke":
-            response = fun.jokes(input_data)
-        elif message == "quote":
-            response = fun.quotes()
-        elif message == "meme":
-            response = fun.memes()
-        elif message == "help":
-            response = details.help()
-        elif message == "contact":
-            response = details.contact()
-        elif message == "info":
-            response = details.info()
+        functions_without_args = {
+            "event": command_event,
+            "quote": fun.quotes,
+            "meme": fun.memes,
+            "help": details.help,
+            "contact": details.contact,
+            "info": details.info,
+        }
+        functions_with_args = {
+            "joke": fun.jokes,
+        }
+
+        if message in functions_without_args.keys():
+            operation = functions_without_args[message]
+            response = operation()
+        else:
+            operation = functions_with_args[message]
+            response = operation(input_data)
+
         return response
