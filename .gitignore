@@ -1,5 +1,4 @@
-src/modules/commands/__pycache__
-src/modules/__pycache__
+__pycache__/
 .vscode
 .env
 env
