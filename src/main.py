@@ -6,6 +6,7 @@ import discord
 from os import getenv
 
 if __name__ == "__main__":
+    load_dotenv()
     TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
