@@ -6,18 +6,21 @@ import json
 
 
 class fun:
-    def jokes(arg):
+    def jokes(data):
+        try:
+            arg = data[1]
+        except:
+            arg = ""
         url = "https://v2.jokeapi.dev/joke/Any"
-        if arg == "misc":
-            url = "https://v2.jokeapi.dev/joke/Misc"
-        elif arg == "programming":
-            url = "https://v2.jokeapi.dev/joke/Programming"
-        elif arg == "dark":
-            url = "https://v2.jokeapi.dev/joke/Dark"
-        elif arg == "pun":
-            url = "https://v2.jokeapi.dev/joke/Pun"
-        elif arg == "spooky":
-            url = "https://v2.jokeapi.dev/joke/Spooky"
+        link_url_arg = {
+            "misc": "https://v2.jokeapi.dev/joke/Misc",
+            "coding": "https://v2.jokeapi.dev/joke/Programming",
+            "dark": "https://v2.jokeapi.dev/joke/Dark",
+            "pun": "https://v2.jokeapi.dev/joke/Pun",
+            "spooky": "https://v2.jokeapi.dev/joke/Spooky",
+        }
+        if arg in link_url_arg:
+            url = link_url_arg[arg]
         response = urlopen(url)
         joke_data = json.loads(response.read())
         if joke_data["type"] == "single":

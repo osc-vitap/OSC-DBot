@@ -1,6 +1,7 @@
 from modules.osc_event_notif import command_event
 from modules.commands.fun import *
 from modules.commands.details import *
+from modules.commands.vc_commands import *
 from discord.client import Client
 import json
 
@@ -57,11 +58,7 @@ class commands:
         if message == "event":
             response = command_event()
         elif message == "joke":
-            try:
-                arg = input_data[1]
-            except:
-                arg = ""
-            response = fun.jokes(arg)
+            response = fun.jokes(input_data)
         elif message == "quote":
             response = fun.quotes()
         elif message == "meme":
