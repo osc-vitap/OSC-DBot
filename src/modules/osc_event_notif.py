@@ -11,6 +11,21 @@ bot = commands.Bot(command_prefix=">")
 client = discord.Client()
 
 
+@tasks.loop(hours=4)
+async def oscEventNotif(message_channel):
+    response = urlopen("https://osc-api.herokuapp.com/event/latest")
+    event_data = json.loads(response.read())
+    with open("data.json", "r") as f:
+        local_data = json.load(f)
+
+    if local_data["eventID"] == event_data["id"]:
+        print("[!] Server logs: No new event found")
+    else:
+        embed = command_event()
+        await message_channel.send("@everyone", embed=embed)
+        print("[!] Server logs: Event alert sent")
+
+
 def command_event():
     response = urlopen("https://osc-api.herokuapp.com/event/latest")
     event_data = json.loads(response.read())
@@ -58,18 +73,3 @@ def command_event():
     )
     response.close()
     return embed
-
-
-@tasks.loop(hours=12)
-async def oscEventNotif(message_channel):
-    response = urlopen("https://osc-api.herokuapp.com/event/latest")
-    event_data = json.loads(response.read())
-    with open("data.json", "r") as f:
-        local_data = json.load(f)
-
-    if local_data["eventID"] == event_data["id"]:
-        print("SERVER LOGS: NO NEW EVENT FOUND")
-    else:
-        embed = command_event()
-        await message_channel.send("@everyone", embed=embed)
-        print("SERVER LOGS: EVENT ALERT SENT")
