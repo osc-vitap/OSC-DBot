@@ -66,10 +66,13 @@ async def news_updates(news_channel):
 
                         embed.set_author(name="inshorts")
 
-                        shortener = Shortener()
-                        short_url = shortener.tinyurl.short(
-                            current_content["readMoreUrl"]
-                        )
+                        if current_content["readMoreUrl"] == None:
+                            short_url = "-"
+                        else:
+                            shortener = Shortener()
+                            short_url = shortener.tinyurl.short(
+                                current_content["readMoreUrl"]
+                            )
 
                         embed.add_field(
                             name="📰   Read more at ",
