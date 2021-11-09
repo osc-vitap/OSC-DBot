@@ -1,14 +1,13 @@
 from modules.osc_event_notif import *
 from modules.news_updates import *
-from modules.utils import commands
+from modules.utils import *
 from dotenv import load_dotenv
-import time
 import discord
-import os
+from os import getenv
 
 if __name__ == "__main__":
-    load_dotenv()  # load .env file
-    TOKEN = os.getenv("DISCORD_TOKEN")
+    load_dotenv()
+    TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
     @client.event
@@ -27,8 +26,10 @@ if __name__ == "__main__":
     async def on_message(message):
         if message.author == client.user:
             return
-        response = commands(message.content)
-        if response:
+        response = commands.validate(message.content)
+        if type(response) == discord.embeds.Embed:
+            await message.channel.send(embed=response)
+        elif response:
             await message.channel.send(response)
 
     client.run(TOKEN)  # run discord client
