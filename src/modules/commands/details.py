@@ -50,13 +50,13 @@ class details:
         util_commands = f"""
 
            > **{prefix}help**
-           > Lists all the **available commands**.
+           > List of all the **available commands**.
            
            > **{prefix}info**
-           > View **more information** on the bot. (Also feel free to contribute bruv)
+           > For **more information** about me.
            
            > **{prefix}contact**
-           > **Reveal the octocats** who made me.
+           > **Reveal the octocats** that gave me life.
 
            > **{prefix}event**
            > I hack OSC VIT-AP database and **fetch you the latest event**, please don't tell them I hacked their database.
@@ -66,13 +66,13 @@ class details:
         fun_commands = f"""
 
            > **{prefix}joke**
-           > I tell a **Joke** and you must laugh.
+           > I tell a **Joke** and you laugh, it's a fair deal.
            
            > **{prefix}meme**
-           > Get you **fresh memes** from the internet, Just memes.
+           > Gets you **latest** and **hotest** memes from the meme world.
            
            > **{prefix}quote**
-           > Fetch you a **random quote** from the internet.
+           > Fetches you a **random quote** from the internet.
         
         """
 
@@ -113,6 +113,6 @@ class details:
 
         embed.set_footer(
             text=" The Open Source Community",
-            icon_url="attachment://logo.png",
+            icon_url="https://i.ibb.co/L86y3Qj/Icon.png",
         )
         return embed
