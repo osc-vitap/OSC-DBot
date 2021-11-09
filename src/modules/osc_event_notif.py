@@ -41,7 +41,7 @@ def command_event():
         title="📢  " + event["eventName"],
         url=event["eventURL"],
         description=event["eventDescription"],
-        color=discord.Color.blue(),
+        color=discord.Color.from_rgb(47, 49, 54),
         timestamp=datetime.utcnow(),
     )
 

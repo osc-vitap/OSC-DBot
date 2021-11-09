@@ -8,7 +8,7 @@ class details:
         embed = discord.Embed(
             title="👋  Contact details",
             description=data,
-            color=discord.Color.green(),
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.add_field(
             name="S Vijay Balaji",
@@ -32,7 +32,7 @@ class details:
         embed = discord.Embed(
             title="💬  Information",
             description=data,
-            color=discord.Color.green(),
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.add_field(
             name="GitHub Link",
@@ -49,30 +49,30 @@ class details:
 
         util_commands = f"""
 
-           > **{prefix}help**
-           > List of all the **available commands**.
+           **{prefix}help**
+           List of all the **available commands**.
            
-           > **{prefix}info**
-           > For **more information** about me.
+           **{prefix}info**
+           For **more information** about me.
            
-           > **{prefix}contact**
-           > **Reveal the octocats** that gave me life.
+           **{prefix}contact**
+           **Reveal the octocats** that gave me life.
 
-           > **{prefix}event**
-           > I hack OSC VIT-AP database and **fetch you the latest event**, please don't tell them I hacked their database.
+           **{prefix}event**
+           I hack OSC VIT-AP database and **fetch you the latest event details**.
         
         """
 
         fun_commands = f"""
 
-           > **{prefix}joke**
-           > I tell a **Joke** and you laugh, it's a fair deal.
+           **{prefix}joke**
+           I tell a **Joke** and you laugh, it's a fair deal.
            
-           > **{prefix}meme**
-           > Gets you **latest** and **hotest** memes from the meme world.
+           **{prefix}meme**
+           Gets you **latest** and **hotest** memes from the meme world.
            
-           > **{prefix}quote**
-           > Fetches you a **random quote** from the internet.
+           **{prefix}quote**
+           Fetches you a **random quote** from the internet.
         
         """
 
@@ -89,22 +89,22 @@ class details:
         embed = discord.Embed(
             title="📖  Help",
             description=data,
-            color=discord.Color.blue(),
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.add_field(
-            name="👉🏽 Utility Commands (For Noobs)",
+            name="🔹 Utility Commands (For Noobs)",
             value=util_commands,
             inline=False,
         )
 
         embed.add_field(
-            name="👉🏽 Fun Commands (For Boomers)",
+            name="🔹 Fun Commands (For Boomers)",
             value=fun_commands,
             inline=False,
         )
 
         embed.add_field(
-            name="👉🏽 More ...",
+            name="🔹 More ...",
             value=prefooter_content,
             inline=False,
         )

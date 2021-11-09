@@ -13,7 +13,7 @@ class commands:
         """
         with open("data.json", "r") as f:
             data = json.load(f)
-        response = "No command found. Use !help for more details"
+        response = f"No command found. Use {data['prefix']}help for more details"
         prefix = data["prefix"]
         message = message.lower()
         input_data = message.strip().split(" ")

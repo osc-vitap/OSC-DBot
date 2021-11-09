@@ -24,13 +24,13 @@ class fun:
             embed = discord.Embed(
                 title="😜  Jokes | " + joke_data["category"],
                 description=joke_data["joke"],
-                color=discord.Color.blue(),
+                color=discord.Color.from_rgb(47, 49, 54),
                 timestamp=datetime.utcnow(),
             )
         if joke_data["type"] == "twopart":
             embed = discord.Embed(
                 title="😜  Jokes | " + joke_data["category"],
-                color=discord.Color.blue(),
+                color=discord.Color.from_rgb(47, 49, 54),
                 timestamp=datetime.utcnow(),
             )
             embed.add_field(
@@ -46,7 +46,7 @@ class fun:
         embed = discord.Embed(
             title="✌️  Quotes",
             description=data["quoteText"],
-            color=discord.Color.blue(),
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.set_footer(text="Quote by " + data["quoteAuthor"])
         return embed
@@ -63,7 +63,7 @@ class fun:
             title="😾  Memes",
             url=data["postLink"],
             description="Subreddit | " + data["subreddit"],
-            color=discord.Color.blue(),
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.set_image(url=data["preview"][-1])
         return embed

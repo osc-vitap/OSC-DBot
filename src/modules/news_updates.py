@@ -61,7 +61,7 @@ async def news_updates(news_channel):
                             title="📢  " + current_content["title"],
                             url=current_content["url"],
                             description=current_content["content"],
-                            color=discord.Color.blue(),
+                            color=discord.Color.from_rgb(47, 49, 54),
                         )
 
                         embed.set_author(name="inshorts")
