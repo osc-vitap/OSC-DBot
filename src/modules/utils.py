@@ -51,7 +51,9 @@ class commands:
                 return response
 
     def functions(input_data, message):
-        response = "No command found. Use !help for more details"
+        with open("data.json", "r") as f:
+            data = json.load(f)
+        response = f"No command found. Use {data['prefix']}help for more details"
         if message == "event":
             response = command_event()
         elif message == "joke":
