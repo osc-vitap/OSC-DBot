@@ -10,11 +10,11 @@ if __name__ == "__main__":
     TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
+    with open("data.json", "r") as f:
+        data = json.load(f)
+
     @client.event
     async def on_ready():
-        with open("data.json", "r") as f:
-            data = json.load(f)
-
         print(f"{client.user} has connected to Discord!")
         activity = discord.Activity(
             type=discord.ActivityType.listening, name=f"{data['prefix']}help"
@@ -36,5 +36,12 @@ if __name__ == "__main__":
             await message.channel.send(embed=response)
         elif response:
             await message.channel.send(response)
+
+        if isinstance(message.channel, discord.DMChannel):
+            dm_channel = client.get_channel(data["ChannelID"]["dm"])
+            dm_notif = (
+                f"**[!] Server logs: {message.author}** sent:```\n{message.content}```"
+            )
+            await dm_channel.send(dm_notif)
 
     client.run(TOKEN)  # run discord client
