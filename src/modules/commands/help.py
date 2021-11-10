@@ -27,7 +27,7 @@ class Help_command:
             embed = discord.Embed(
                 title="📖  Help",
                 description=f"""Please verify that the command you are searching for exists.
-                For more information, use **>info**""",
+                For more information, use **{self.prefix}info**""",
                 color=discord.Color.from_rgb(47, 49, 54),
             )
         return embed
