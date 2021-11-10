@@ -1,5 +1,9 @@
 {
     "prefix": ">",
+    "eventID": 40,
+    "newsTimestamp": "10 Nov 2021 | 09:50 am",
+    "newsChannel": 757221940820967434,
+    "eventChannel": 897548070512918558,
     "utils": [
         {
             "messages": {
@@ -19,9 +23,5 @@
                 "help": "details.help"
             }
         }
-    ],
-    "eventID": 40,
-    "newsTimestamp": "10 Nov 2021 | 09:50 am",
-    "newsChannel": 757221940820967434,
-    "eventChannel": 897548070512918558
+    ]
 }
