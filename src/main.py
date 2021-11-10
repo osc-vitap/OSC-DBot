@@ -31,8 +31,8 @@ if __name__ == "__main__":
             return
         response = commands.validate(message.content)
         if type(response) == discord.embeds.Embed:
-            await message.channel.send(embed=response)
+            await message.reply(embed=response)
         elif response:
-            await message.channel.send(response)
+            await message.reply(response)
 
     client.run(TOKEN)  # run discord client
