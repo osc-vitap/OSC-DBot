@@ -1,9 +1,7 @@
- <img src="assets/Discord-Logo.png" alt="Discord_Logo" width = 175>
-
 # OSC-DBot
 
 <p align="center">
-    <img src="assets/Logo.png" alt="Logo">
+    <img src="assets/OSCDbot_Logo1.png" alt="Logo">
     <br>Discord bot built for the Open Source Community VIT:AP.
 </p>
 
