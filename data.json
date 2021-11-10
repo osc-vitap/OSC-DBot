@@ -6,15 +6,17 @@
                 "hey": "Hello there!",
                 "sup": "Serving your requests"
             },
-            "commands": [
-                "event",
-                "joke",
-                "quote",
-                "meme",
-                "help",
-                "contact",
-                "info"
-            ]
+            "functions_without_args": {
+                "event": "command_event",
+                "quote": "fun.quotes",
+                "meme": "fun.memes",
+                "help": "details.help",
+                "contact": "details.contact",
+                "info": "details.info"
+            },
+            "functions_with_args": {
+                "joke": "fun.jokes"
+            }
         }
     ],
     "eventID": 40,
