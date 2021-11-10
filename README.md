@@ -19,7 +19,7 @@
 The Open Source Community at VIT:AP uses discord as their main communication medium. \
 Sending out announcements, events, and other information manually is tedious and time consuming. \
 While there are many bots out there that send out embedded messages or announcements to channels, it was not an automated process. \
-And that's there the OSC-DBot comes into play. It utilizes [OSC-API](https://github.com/Open-Source-Community-VIT-AP/OSC-API) to send regular updates on upcoming events, announcements, and other information.
+And that's where OSC-DBot comes into play. It utilizes [OSC-API](https://github.com/Open-Source-Community-VIT-AP/OSC-API) to send regular updates on upcoming events, announcements, and other information.
 
 We obviously cannot have a bot that only sends event announcements. So we introduced a few fun games and other essential VIT:AP related automations.
 
