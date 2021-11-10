@@ -56,7 +56,7 @@ class fun:
 
     def memes():
         urls = [
-            "https://meme-api.herokuapp.com/gimme/",
+            "https://meme-api.herokuapp.com/gimme/memes",
             "https://meme-api.herokuapp.com/gimme/ProgrammerHumor",
         ]
         response = urlopen(random.choice(urls))
@@ -65,7 +65,8 @@ class fun:
         embed = discord.Embed(
             title="😾  Memes",
             url=data["postLink"],
-            description="Subreddit | " + data["subreddit"],
+            description=f"""Subreddit |  {data["subreddit"]}
+            **{data["title"]}**""",
             color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.set_image(url=data["preview"][-1])

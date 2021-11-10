@@ -2,27 +2,27 @@
     "prefix": ">",
     "eventID": 40,
     "newsTimestamp": "11 Nov 2021 | 00:00 AM",
-    "newsChannel": 757221940820967434,
-    "eventChannel": 897548070512918558,
-    "utils": [
-        {
-            "messages": {
-                "hey": "Hello there!",
-                "sup": "Serving your requests"
-            },
-            "functions_without_args": {
-                "event": "command_event",
-                "quote": "fun.quotes",
-                "meme": "fun.memes",
-                "contact": "details.contact",
-                "info": "details.info"
-            },
-            "functions_with_args": {
-                "joke": "fun.jokes",
-                "tod": "fun.tod",
-                "help": "details.help",
-                "eb": "details.eb"
-            }
+    "ChannelID": {
+        "news": 757221940820967434,
+        "event": 897548070512918558
+    },
+    "utils": {
+        "messages": {
+            "hey": "Hello there!",
+            "sup": "Serving your requests"
+        },
+        "functions_without_args": {
+            "event": "command_event",
+            "quote": "fun.quotes",
+            "meme": "fun.memes",
+            "contact": "details.contact",
+            "info": "details.info"
+        },
+        "functions_with_args": {
+            "joke": "fun.jokes",
+            "tod": "fun.tod",
+            "help": "details.help",
+            "eb": "details.eb"
         }
-    ]
+    }
 }

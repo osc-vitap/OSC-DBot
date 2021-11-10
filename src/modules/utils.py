@@ -34,14 +34,14 @@ class commands:
             message = input_data[0][1:]  # Removing prefix after validation
 
             # Validating message
-            message_request = data["utils"][0]["messages"]
+            message_request = data["utils"]["messages"]
             if message in message_request.keys():
                 response = commands.message(message, message_request)
 
             # Checking if command
             command_request = {}
-            command_request.update(data["utils"][0]["functions_without_args"])
-            command_request.update(data["utils"][0]["functions_with_args"])
+            command_request.update(data["utils"]["functions_without_args"])
+            command_request.update(data["utils"]["functions_with_args"])
             if message in command_request:
                 response = commands.functions(message, input_data)
         return response
@@ -56,8 +56,8 @@ class commands:
         with open("data.json", "r") as f:
             data = json.load(f)
         response = f"No command found. Use {data['prefix']}help for more details"
-        functions_without_args = data["utils"][0]["functions_without_args"]
-        functions_with_args = data["utils"][0]["functions_with_args"]
+        functions_without_args = data["utils"]["functions_without_args"]
+        functions_with_args = data["utils"]["functions_with_args"]
 
         if message in functions_without_args.keys():
             operation = eval(functions_without_args[message])

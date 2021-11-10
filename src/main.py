@@ -21,10 +21,10 @@ if __name__ == "__main__":
         )
         await client.change_presence(activity=activity)
 
-        message_channel = client.get_channel(data["eventChannel"])
+        message_channel = client.get_channel(data["ChannelID"]["news"])
         oscEventNotif.start(message_channel)
 
-        news_channel = client.get_channel(data["newsChannel"])
+        news_channel = client.get_channel(data["ChannelID"]["event"])
         news_updates.start(news_channel)
 
     @client.event
