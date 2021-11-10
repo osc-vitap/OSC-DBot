@@ -5,52 +5,63 @@ import discord
 class Help_command:
     def __init__(self, data):
         self.data = data
+        with open("data.json", "r") as f:
+            data = json.load(f)
+        self.prefix = data["prefix"]
 
     def validate(self):
         try:
-            args = [self.data[1], self.data[2]]
+            args = self.data[1]
         except:
             return self.default_response()
+        link_args = {
+            "joke": self.joke,
+            "meme": self.meme,
+            "quote": self.quote,
+            "tod": self.tod,
+            "event": self.event,
+        }
+        if args in link_args:
+            return link_args[args]()
 
     def default_response(self):
-        with open("data.json", "r") as f:
-            data = json.load(f)
-        prefix = data["prefix"]
+        info = f"""
 
-        util_commands = f"""
-
-           **{prefix}help**
-           List of all the **available commands**.
+           **{self.prefix}help command_name**
+           Get more information about a specific command
            
-           **{prefix}info**
+           **{self.prefix}info**
            For **more information** about me.
            
-           **{prefix}contact**
+           **{self.prefix}contact**
            **Reveal the octocats** that gave me life.
 
-           **{prefix}event**
+           **{self.prefix}event**
            I hack OSC VIT-AP database and **fetch you the latest event details**.
         
         """
 
         fun_commands = f"""
 
-           **{prefix}joke**
+           **{self.prefix}joke**
            I tell a **Joke** and you laugh, it's a fair deal.
            
-           **{prefix}meme**
+           **{self.prefix}meme**
            Gets you **latest** and **hotest** memes from the meme world.
            
-           **{prefix}quote**
+           **{self.prefix}quote**
            Fetches you a **random quote** from the internet.
+
+           **{self.prefix}tod**
+            Play a game of Truth or dare. Go on, try it. I dare you.
         
         """
 
         prefooter_content = f"""
 
-         For more help, cry. 
-         Just kidding, use **{prefix}info** to get access to more information on the bot.
-        
+         For more help, contact beluga.
+         Just kidding, use **{self.prefix}info** to get access to more information on the bot.
+
          More commands coming soon.
 
         """
@@ -63,7 +74,7 @@ class Help_command:
         )
         embed.add_field(
             name="🔹 Utility Commands (For Noobs)",
-            value=util_commands,
+            value=info,
             inline=False,
         )
 
@@ -84,5 +95,95 @@ class Help_command:
         embed.set_footer(
             text=" The Open Source Community",
             icon_url="https://i.ibb.co/L86y3Qj/Icon.png",
+        )
+        return embed
+
+    def joke(self):
+        embed = discord.Embed(
+            title="📖  Help | Joke",
+            description=f"""
+            Command: **{self.prefix}joke args** 
+            I collect data from several sources and tell you a very **funny joke**.
+            You read my joke and laugh out loud. It's a win-win.
+
+            I also provides jokes on several categories.
+            **{self.prefix}joke coding**: Programmer jokes.
+            **{self.prefix}joke dark**: Into dark humor? You'll love these!
+            **{self.prefix}joke pun**: These puns will have you rolling on the floor.
+            **{self.prefix}joke spooky**: Scary, spooky, but funny.
+            """,
+            color=discord.Color.from_rgb(47, 49, 54),
+        )
+        return embed
+
+    def meme(self):
+        embed = discord.Embed(
+            title="📖  Help | Meme",
+            description=f"""
+            Command: **{self.prefix}meme** 
+            I bring you the latest and hotest memes from the world of reddit.
+
+            I currently get memes from the following subreddits:
+            https://www.reddit.com/r/memes/
+            https://www.reddit.com/r/ProgrammerHumor/
+            """,
+            color=discord.Color.from_rgb(47, 49, 54),
+        )
+        return embed
+
+    def quote(self):
+        embed = discord.Embed(
+            title="📖  Help | Quote",
+            description=f"""
+            Command: **{self.prefix}quote** 
+            You may die but the words you speak or spoke will live on. Forever.
+
+            "Quotes inspire you, Quotes make you happy and solves all problems in life"
+            - Sun Tzu
+
+            In honour of Sun Tzu, I bring you the greatest quotes from the internet.
+            """,
+            color=discord.Color.from_rgb(47, 49, 54),
+        )
+        return embed
+
+    def tod(self):
+        embed = discord.Embed(
+            title="📖  Help | TOD",
+            description=f"""
+            Command: **{self.prefix}tod gamemode rating** 
+            Want to play a game of **Truth or dare**?
+            How about *Would you rather* or *Never have I ever*?
+            Oh you do? Well, I got you covered.
+
+            TOD command syntax:
+            **{self.prefix}tod truth**: I dare you to say something truthful.
+            **{self.prefix}tod dare**: I send you a dare and you do it. Simple.
+            **{self.prefix}tod wyr**: Would you rather?
+            **{self.prefix}tod nie**: Never have I ever.
+            **{self.prefix}tod paranoia**: I send you some spicy paranoia questions.
+            
+            You can also add ratings to add some spice to the game!
+            **{self.prefix}tod gamemode rating**.
+            Different ratings - R, PG13, PG.
+            Example: 
+            **{self.prefix}tod truth r**
+            **{self.prefix}tod wyr pg13**
+            """,
+            color=discord.Color.from_rgb(47, 49, 54),
+        )
+        return embed
+
+    def event(self):
+        embed = discord.Embed(
+            title="📖  Help | Event",
+            description=f"""
+            Command: **{self.prefix}event** 
+            Need info on the latest OSC event? I gotcha covered.
+
+            I hack the OSC VIT-AP database and fetch you **latest event** details.
+            Just don't snitch on me and I'll keep you updated.
+            """,
+            color=discord.Color.from_rgb(47, 49, 54),
         )
         return embed
