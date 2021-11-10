@@ -82,9 +82,11 @@ class fun:
         try:
             type = data[1]
         except:
+            with open("data.json", "r") as f:
+                prefix = json.load(f)["prefix"]
             embed = discord.Embed(
                 title="😏  Truth or dare",
-                description="Invalid syntax. Use `>help tod` to know more.",
+                description=f"Invalid syntax. Use `{prefix}help tod` to know more.",
                 color=discord.Color.from_rgb(47, 49, 54),
             )
             return embed

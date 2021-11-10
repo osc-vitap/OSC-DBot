@@ -16,7 +16,9 @@ if __name__ == "__main__":
             data = json.load(f)
 
         print(f"{client.user} has connected to Discord!")
-        activity = discord.Activity(type=discord.ActivityType.listening, name=">help")
+        activity = discord.Activity(
+            type=discord.ActivityType.listening, name=f"{data['prefix']}help"
+        )
         await client.change_presence(activity=activity)
 
         message_channel = client.get_channel(data["eventChannel"])

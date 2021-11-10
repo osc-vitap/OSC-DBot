@@ -7,7 +7,6 @@ import json
 from os import getenv
 
 TOKEN = getenv("DISCORD_TOKEN")
-bot = commands.Bot(command_prefix=">")
 client = discord.Client()
 
 
