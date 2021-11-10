@@ -104,7 +104,7 @@ class fun:
         response = urlopen(req)
         data = json.loads(response.read())
         embed = discord.Embed(
-            title="😏  Truth or dare | " + data["type"] + " - " + data["rating"],
+            title="🔥  TOD | " + data["type"] + " - " + data["rating"],
             description=data["question"],
             color=discord.Color.from_rgb(47, 49, 54),
         )
