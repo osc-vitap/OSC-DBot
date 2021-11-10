@@ -10,13 +10,13 @@
                 "event": "command_event",
                 "quote": "fun.quotes",
                 "meme": "fun.memes",
-                "help": "details.help",
                 "contact": "details.contact",
                 "info": "details.info"
             },
             "functions_with_args": {
                 "joke": "fun.jokes",
-                "tod": "fun.tod"
+                "tod": "fun.tod",
+                "help": "details.help"
             }
         }
     ],
