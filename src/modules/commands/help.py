@@ -23,6 +23,14 @@ class Help_command:
         }
         if args in link_args:
             return link_args[args]()
+        else:
+            embed = discord.Embed(
+                title="📖  Help",
+                description=f"""Please verify that the command you are searching for exists.
+                For more information, use **>info**""",
+                color=discord.Color.from_rgb(47, 49, 54),
+            )
+        return embed
 
     def default_response(self):
         info = f"""
