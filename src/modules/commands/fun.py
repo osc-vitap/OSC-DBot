@@ -1,4 +1,4 @@
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from datetime import datetime
 import discord
 import random
@@ -69,4 +69,41 @@ class fun:
             color=discord.Color.from_rgb(47, 49, 54),
         )
         embed.set_image(url=data["preview"][-1])
+        return embed
+
+    def tod(data):
+        link_url_arg = {
+            "truth": "https://api.truthordarebot.xyz/api/truth?rating=",
+            "dare": "https://api.truthordarebot.xyz/api/dare?rating=",
+            "wyr": "https://api.truthordarebot.xyz/api/wyr?rating=",
+            "nhie": "https://api.truthordarebot.xyz/api/nhie?rating=",
+            "pranoia": "https://api.truthordarebot.xyz/api/paranoia?rating=",
+        }
+        try:
+            type = data[1]
+        except:
+            embed = discord.Embed(
+                title="😏  Truth or dare",
+                description="Invalid syntax. Use `>help tod` to know more.",
+                color=discord.Color.from_rgb(47, 49, 54),
+            )
+            return embed
+
+        try:
+            if data[2] == "r" or data[2] == "pg" or data[2] == "pg13":
+                rating = data[2]
+        except:
+            rating = ""
+
+        if type in link_url_arg:
+            url = link_url_arg[type] + rating
+
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        response = urlopen(req)
+        data = json.loads(response.read())
+        embed = discord.Embed(
+            title="😏  Truth or dare | " + data["type"] + " - " + data["rating"],
+            description=data["question"],
+            color=discord.Color.from_rgb(47, 49, 54),
+        )
         return embed

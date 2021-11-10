@@ -10,17 +10,18 @@
                 "event": "command_event",
                 "quote": "fun.quotes",
                 "meme": "fun.memes",
-                "help": "details.help",
                 "contact": "details.contact",
                 "info": "details.info"
             },
             "functions_with_args": {
-                "joke": "fun.jokes"
+                "joke": "fun.jokes",
+                "tod": "fun.tod",
+                "help": "details.help"
             }
         }
     ],
     "eventID": 40,
-    "newsTimestamp": "10 Nov 2021 | 00:00 AM",
+    "newsTimestamp": "10 Nov 2021 | 09:50 am",
     "newsChannel": 907642314959245332,
     "eventChannel": 904455110212591676
 }
