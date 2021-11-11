@@ -18,9 +18,6 @@ class commands:
         message = message.lower()
         input_data = message.strip().split(" ")
 
-        if message in ["f", "bruh", "lol", "scam", "sus"]:
-            return message.capitalize()
-
         # Checking if command follows proper syntax
         # If the message doesn't start with prefix
         # If only prefix is typed, if prefix is typed with a space and message
