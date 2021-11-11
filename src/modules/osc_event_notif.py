@@ -1,17 +1,12 @@
 from discord.ext import tasks, commands
 from urllib.request import urlopen
-from dotenv import load_dotenv
 from datetime import datetime
 import discord
 import json
-from os import getenv
-
-TOKEN = getenv("DISCORD_TOKEN")
-client = discord.Client()
 
 
 @tasks.loop(hours=4)
-async def oscEventNotif(message_channel):
+async def oscEventNotif(event_channels):
     response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
     with open("data/settings.json", "r") as f:
@@ -21,8 +16,9 @@ async def oscEventNotif(message_channel):
         print("[!] Server logs: No new event found")
     else:
         embed = command_event()
-        await message_channel.send("@everyone", embed=embed)
-        print("[!] Server logs: Event alert sent")
+        for channel in event_channels:
+            await channel.send("@everyone", embed=embed)
+            print("[!] Server logs: Event alert sent in", channel.name)
 
 
 def command_event():
