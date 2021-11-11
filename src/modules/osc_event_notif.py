@@ -12,7 +12,7 @@ client = discord.Client()
 
 @tasks.loop(hours=4)
 async def oscEventNotif(message_channel):
-    response = urlopen("https://osc-api.herokuapp.com/event/latest")
+    response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
     with open("data/settings.json", "r") as f:
         local_data = json.load(f)
@@ -26,7 +26,7 @@ async def oscEventNotif(message_channel):
 
 
 def command_event():
-    response = urlopen("https://osc-api.herokuapp.com/event/latest")
+    response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
     with open("data/settings.json", "r") as f:
         local_data = json.load(f)
