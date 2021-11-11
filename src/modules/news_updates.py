@@ -13,13 +13,13 @@ async def news_updates(news_channel):
     today = date.today().strftime("%d %b %Y")  # today date.
     max_time = ""  # stores the latest news.
 
-    with open("data.json", "r") as f:
+    with open("data/settings.json", "r") as f:
         cache_mem = json.load(f)
 
     # if last news was sent yesterday, then change data in the json file.
     if today != cache_mem["newsTimestamp"].split("|")[0].strip():
         cache_mem["newsTimestamp"] = today + " | " + "00:00 AM"
-        with open("data.json", "w") as f:
+        with open("data/settings.json", "w") as f:
             json.dump(cache_mem, f)
 
     for url in urls:
@@ -79,7 +79,10 @@ async def news_updates(news_channel):
                             value=short_url,
                         )
 
-                        embed.set_image(url=current_content["imageUrl"])
+                        if current_content["imageUrl"] == None:
+                            embed.set_thumbnail(url="https://i.imgur.com/5l1Jz6S.png")
+                        else:
+                            embed.set_image(url=current_content["imageUrl"])
 
                         date_and_time = (
                             "📰 "
@@ -106,7 +109,7 @@ async def news_updates(news_channel):
 
                         # update the latest time with the local json file
                         cache_mem["newsTimestamp"] = today + " | " + max_time
-                        with open("data.json", "w") as f:
+                        with open("data/settings.json", "w") as f:
                             json.dump(cache_mem, f, indent=4, separators=(",", ": "))
-
+                        print(news_channel)
                         await news_channel.send(embed=embed)

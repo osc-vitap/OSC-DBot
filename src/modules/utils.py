@@ -11,7 +11,7 @@ class commands:
         Validates all the commands
         :param message: The message to be parsed
         """
-        with open("data.json", "r") as f:
+        with open("data/settings.json", "r") as f:
             data = json.load(f)
         response = f"No command found. Use {data['prefix']}help for more details"
         prefix = data["prefix"]
@@ -53,7 +53,7 @@ class commands:
                 return response
 
     def functions(message, input_data):
-        with open("data.json", "r") as f:
+        with open("data/settings.json", "r") as f:
             data = json.load(f)
         response = f"No command found. Use {data['prefix']}help for more details"
         functions_without_args = data["utils"]["functions_without_args"]

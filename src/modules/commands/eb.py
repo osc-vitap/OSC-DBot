@@ -5,7 +5,7 @@ import json
 class ebDetails:
     def __init__(self, data):
         self.data = data
-        with open("data.json", "r") as f:
+        with open("data/settings.json", "r") as f:
             data = json.load(f)
         self.prefix = data["prefix"]
 
@@ -23,9 +23,9 @@ class ebDetails:
             return link_args[args]()
         else:
             embed = discord.Embed(
-                title="📖  Help",
-                description=f"""Please verify that the command you are searching for exists.
-                For more information, use **{self.prefix}info**""",
+                title="🎓  EB",
+                description=f"""Please verify that you have entered the correct argument.
+                For more information, use **{self.prefix}help eb**""",
                 color=discord.Color.from_rgb(47, 49, 54),
             )
         return embed

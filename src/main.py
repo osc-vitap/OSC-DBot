@@ -10,7 +10,7 @@ if __name__ == "__main__":
     TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
-    with open("data.json", "r") as f:
+    with open("data/settings.json", "r") as f:
         data = json.load(f)
 
     @client.event
@@ -21,10 +21,10 @@ if __name__ == "__main__":
         )
         await client.change_presence(activity=activity)
 
-        message_channel = client.get_channel(data["ChannelID"]["news"])
+        message_channel = client.get_channel(data["ChannelID"]["event"])
         oscEventNotif.start(message_channel)
 
-        news_channel = client.get_channel(data["ChannelID"]["event"])
+        news_channel = client.get_channel(data["ChannelID"]["news"])
         news_updates.start(news_channel)
 
     @client.event

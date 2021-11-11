@@ -83,7 +83,7 @@ class fun:
         try:
             type = data[1]
         except:
-            with open("data.json", "r") as f:
+            with open("data/settings.json", "r") as f:
                 prefix = json.load(f)["prefix"]
             embed = discord.Embed(
                 title="😏  Truth or dare",
