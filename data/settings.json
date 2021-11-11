@@ -1,0 +1,29 @@
+{
+    "prefix": ">",
+    "eventID": 40,
+    "newsTimestamp": "11 Nov 2021 | 05:47 pm",
+    "ChannelID": {
+        "news": 757221940820967434,
+        "event": 897548070512918558,
+        "dm": 842109013969862656
+    },
+    "utils": {
+        "messages": {
+            "hey": "Hello there!",
+            "sup": "Serving your requests"
+        },
+        "functions_without_args": {
+            "event": "command_event",
+            "quote": "fun.quotes",
+            "meme": "fun.memes",
+            "contact": "details.contact",
+            "info": "details.info"
+        },
+        "functions_with_args": {
+            "joke": "fun.jokes",
+            "tod": "fun.tod",
+            "help": "details.help",
+            "eb": "details.eb"
+        }
+    }
+}

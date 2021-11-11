@@ -1,3 +1,4 @@
+from modules.commands.eb import ebDetails
 from modules.commands.help import *
 import discord
 
@@ -44,4 +45,8 @@ class details:
 
     def help(data):
         response = Help_command(data)
+        return response.validate()
+
+    def eb(data):
+        response = ebDetails(data)
         return response.validate()
