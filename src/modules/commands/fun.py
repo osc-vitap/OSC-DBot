@@ -1,5 +1,6 @@
 from urllib.request import Request, urlopen
 from datetime import datetime
+from modules.db_connections import get_data
 import discord
 import random
 import json
@@ -83,8 +84,7 @@ class fun:
         try:
             type = data[1]
         except:
-            with open("data/settings.json", "r") as f:
-                prefix = json.load(f)["prefix"]
+            prefix = get_data("prefix")
             embed = discord.Embed(
                 title="😏  Truth or dare",
                 description=f"Invalid syntax. Use `{prefix}help tod` to know more.",

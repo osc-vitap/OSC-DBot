@@ -1,7 +1,9 @@
 from modules.osc_event_notif import *
 from modules.news_updates import *
+from modules.db_connections import *
 from modules.utils import *
 from dotenv import load_dotenv
+import psycopg2
 import discord
 from os import getenv
 
@@ -10,6 +12,9 @@ if __name__ == "__main__":
     TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
+    DB_URL = getenv("DB_URL")
+    conn = psycopg2.connect(DB_URL, sslmode="require")
+
     with open("data/settings.json", "r") as f:
         data = json.load(f)
 
@@ -17,7 +22,8 @@ if __name__ == "__main__":
     async def on_ready():
         print(f"{client.user} has connected to Discord!")
         activity = discord.Activity(
-            type=discord.ActivityType.listening, name=f"{data['prefix']}help"
+            type=discord.ActivityType.listening,
+            name="{} help".format(get_data("prefix")),
         )
         await client.change_presence(activity=activity)
 

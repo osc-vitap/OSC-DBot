@@ -1,13 +1,12 @@
 import json
 import discord
+from modules.db_connections import get_data
 
 
 class Help_command:
     def __init__(self, data):
         self.data = data
-        with open("data/settings.json", "r") as f:
-            data = json.load(f)
-        self.prefix = data["prefix"]
+        self.prefix = get_data("prefix")
 
     def validate(self):
         try:
