@@ -79,7 +79,7 @@ class fun:
             "dare": "https://api.truthordarebot.xyz/api/dare?rating=",
             "wyr": "https://api.truthordarebot.xyz/api/wyr?rating=",
             "nhie": "https://api.truthordarebot.xyz/api/nhie?rating=",
-            "pranoia": "https://api.truthordarebot.xyz/api/paranoia?rating=",
+            "paranoia": "https://api.truthordarebot.xyz/api/paranoia?rating=",
         }
         try:
             type = data[1]

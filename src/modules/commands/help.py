@@ -167,7 +167,7 @@ class Help_command:
             **{self.prefix}tod truth**: I dare you to say something truthful.
             **{self.prefix}tod dare**: I send you a dare and you do it. Simple.
             **{self.prefix}tod wyr**: Would you rather?
-            **{self.prefix}tod nie**: Never have I ever.
+            **{self.prefix}tod nhie**: Never have I ever.
             **{self.prefix}tod paranoia**: I send you some spicy paranoia questions.
             
             You can also add ratings to add some spice to the game!
