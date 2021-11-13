@@ -2,6 +2,7 @@ from modules.osc_event_notif import *
 from modules.news_updates import *
 from modules.utils import *
 from dotenv import load_dotenv
+import psycopg2
 import discord
 from os import getenv
 
@@ -10,6 +11,8 @@ if __name__ == "__main__":
     TOKEN = getenv("DISCORD_TOKEN")
     client = discord.Client()  # init discord client
 
+    DB_URL = getenv["DB_URL"]
+    conn = psycopg2.connect(DB_URL, sslmode="require")
     with open("data/settings.json", "r") as f:
         data = json.load(f)
 
