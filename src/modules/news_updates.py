@@ -1,6 +1,7 @@
 from discord.ext import tasks, commands
 from urllib.request import urlopen
 from datetime import date
+from modules.db_connections import *
 from pyshorteners import Shortener
 import discord
 import json
@@ -13,14 +14,11 @@ async def news_updates(news_channel):
     today = date.today().strftime("%d %b %Y")  # today date.
     max_time = ""  # stores the latest news.
 
-    with open("data/settings.json", "r") as f:
-        cache_mem = json.load(f)
-
     # if last news was sent yesterday, then change data in the json file.
-    if today != cache_mem["newsTimestamp"].split("|")[0].strip():
-        cache_mem["newsTimestamp"] = today + " | " + "00:00 AM"
-        with open("data/settings.json", "w") as f:
-            json.dump(cache_mem, f)
+    cache = get_data("newsTimestamp")
+    if today != cache.split("|")[0].strip():
+        query = today + " | " + "00:00 AM"
+        update_newsTimestamp(query)
 
     for url in urls:
         # get json data from the api
@@ -47,7 +45,7 @@ async def news_updates(news_channel):
 
         # check if the latest news is already sent out
         for item in time_stamps.copy():
-            if item > cache_mem["newsTimestamp"].split(" | ")[1].strip():
+            if item > cache.split(" | ")[1].strip():
                 break
             time_stamps.remove(item)
 
@@ -108,8 +106,10 @@ async def news_updates(news_channel):
                             max_time = current_content["time"]
 
                         # update the latest time with the local json file
-                        cache_mem["newsTimestamp"] = today + " | " + max_time
-                        with open("data/settings.json", "w") as f:
-                            json.dump(cache_mem, f, indent=4, separators=(",", ": "))
+                        query = today + " | " + max_time
+                        update_newsTimestamp(query)
                         print(news_channel)
-                        await news_channel.send(embed=embed)
+                        try:
+                            await news_channel.send(embed=embed)
+                        except:
+                            print("[!] Server logs: Error unable to find channel")

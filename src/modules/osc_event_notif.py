@@ -4,32 +4,30 @@ from datetime import datetime
 import discord
 import json
 
+from modules.db_connections import *
+
 
 @tasks.loop(hours=4)
 async def oscEventNotif(event_channels):
     response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
-    with open("data/settings.json", "r") as f:
-        local_data = json.load(f)
+    eventID = get_data("event_id")
 
-    if local_data["eventID"] == event_data["id"]:
+    if eventID == event_data["id"]:
         print("[!] Server logs: No new event found")
     else:
         embed = command_event()
         for channel in event_channels:
-            await channel.send("@everyone", embed=embed)
-            print("[!] Server logs: Event alert sent in", channel.name)
+            try:
+                await channel.send("@everyone", embed=embed)
+                print("[!] Server logs: Event alert sent out", channel.name)
+            except:
+                print("[!] Server logs: Error unable to find channel")
 
 
 def command_event():
     response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
-    with open("data/settings.json", "r") as f:
-        local_data = json.load(f)
-
-    local_data["eventID"] = event_data["id"]
-    with open("data/settings.json", "w") as f:
-        json.dump(local_data, f, indent=4, separators=(",", ": "))
 
     event = event_data
     embed = discord.Embed(
@@ -67,4 +65,5 @@ def command_event():
         text=event["eventCaption"], icon_url="https://i.ibb.co/rFv3nXZ/001-like.png"
     )
     response.close()
+    update_eventId(event_data["id"])
     return embed

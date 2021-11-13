@@ -1,8 +1,14 @@
+from modules.db_connections import *
 from modules.osc_event_notif import command_event
 from modules.commands.fun import *
 from modules.commands.details import *
+from modules.db_connections import *
 from discord.client import Client
 import json
+
+prefix = get_data("prefix")
+with open("data/settings.json", "r") as f:
+    data = json.load(f)
 
 
 class commands:
@@ -11,10 +17,7 @@ class commands:
         Validates all the commands
         :param message: The message to be parsed
         """
-        with open("data/settings.json", "r") as f:
-            data = json.load(f)
-        response = f"No command found. Use {data['prefix']}help for more details"
-        prefix = data["prefix"]
+        response = f"No command found. Use {prefix}help for more details"
         message = message.lower()
         input_data = message.strip().split(" ")
 
@@ -50,9 +53,7 @@ class commands:
                 return response
 
     def functions(message, input_data):
-        with open("data/settings.json", "r") as f:
-            data = json.load(f)
-        response = f"No command found. Use {data['prefix']}help for more details"
+        response = f"No command found. Use {prefix}help for more details"
         functions_without_args = data["utils"]["functions_without_args"]
         functions_with_args = data["utils"]["functions_with_args"]
 

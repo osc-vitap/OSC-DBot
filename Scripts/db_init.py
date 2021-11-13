@@ -3,10 +3,10 @@ import psycopg2
 from os import getenv
 
 DATABASE_URL = getenv("DB_URL")
-conn = psycopg2.connect(DATABASE_URL, sslmode="require")
 
 
 def create_tables():
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     CREATE_TABLE_QUERY = """
     CREATE TABLE tempVariable (
         id SERIAL PRIMARY KEY,
@@ -23,6 +23,7 @@ def create_tables():
 
 
 def insert_values():
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     INSERT_QUERY = """
     INSERT INTO tempVariable (id, prefix, event_id, newsTimestamp)
     VALUES (%s, %s, %s, %s);
@@ -35,6 +36,7 @@ def insert_values():
 
 
 def get_data(query):
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     cursor = conn.cursor()
     cursor.execute(f"SELECT {query} FROM tempVariable;")
     result = cursor.fetchone()
@@ -42,6 +44,7 @@ def get_data(query):
 
 
 def update_data(query):
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     cursor = conn.cursor()
     cursor.execute(f"UPDATE tempVariable SET {query} WHERE id = 1;")
     conn.commit()
@@ -55,5 +58,5 @@ if __name__ == "__main__":
     # print(get_data("prefix"))
     # print(get_data("event_id"))
     # print(get_data("newsTimestamp"))
-    # update_data("prefix = '>'")
-    print(get_data("prefix"))
+    # update_data("event_id = '40'")
+    print(get_data("event_id"))
