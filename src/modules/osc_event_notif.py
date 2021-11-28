@@ -7,7 +7,7 @@ import json
 from modules.db_connections import *
 
 
-@tasks.loop(hours=4)
+@tasks.loop(hours=8)
 async def oscEventNotif(event_channels):
     response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
