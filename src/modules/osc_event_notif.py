@@ -7,24 +7,6 @@ import json
 from modules.db_connections import *
 
 
-@tasks.loop(hours=8)
-async def oscEventNotif(event_channels):
-    response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
-    event_data = json.loads(response.read())
-    eventID = get_data("event_id")
-
-    if eventID == event_data["id"]:
-        print("[!] Server logs: No new event found")
-    else:
-        embed = command_event()
-        for channel in event_channels:
-            try:
-                await channel.send("@everyone", embed=embed)
-                print("[!] Server logs: Event alert sent out", channel.name)
-            except:
-                print("[!] Server logs: Error unable to find channel")
-
-
 def command_event():
     response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
     event_data = json.loads(response.read())
