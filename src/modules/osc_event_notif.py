@@ -8,7 +8,7 @@ from modules.db_connections import *
 
 
 def command_event():
-    response = urlopen("https://osc-api.herokuapp.com/api/event/latest")
+    response = urlopen("https://osc-api.herokuapp.com/api/v1/event/latest")
     event_data = json.loads(response.read())
 
     event = event_data
