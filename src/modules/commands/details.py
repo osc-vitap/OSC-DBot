@@ -13,7 +13,7 @@ class details:
         )
         embed.add_field(
             name="S Vijay Balaji",
-            value="vijaybalaji2477@gmail.com - <@410473185109344256>",
+            value="svijayb.dev@gmail.com - <@410473185109344256>",
             inline=False,
         )
         embed.add_field(

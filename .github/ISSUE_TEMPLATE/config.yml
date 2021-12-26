@@ -1,11 +1,11 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Email
-    url: vijaybalaji2477@gmail.com
-    about: Feel free to contact me for any reason related to the project.
-  - name: Email
-    url: nkrishnaraj0907@gmail.com
-    about: Need help with the bot? Drop an Email. 
-  - name: Discord Community
-    url: https://discord.gg/XkM3bcg6Ex
-    about: Join the Open Source Community VIT:AP
+    - name: Email
+      url: svijayb.dev@gmail.com
+      about: Feel free to contact me for any reason related to the project.
+    - name: Email
+      url: nkrishnaraj0907@gmail.com
+      about: Need help with the bot? Drop an Email.
+    - name: Discord Community
+      url: https://discord.gg/XkM3bcg6Ex
+      about: Join the Open Source Community VIT:AP
