@@ -20,14 +20,6 @@ def update_prefix(query):
     conn.close()
 
 
-def update_eventId(query):
-    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
-    cursor = conn.cursor()
-    cursor.execute(f"UPDATE tempVariable SET event_id = '{query}' WHERE id = 1;")
-    conn.commit()
-    conn.close()
-
-
 def update_newsTimestamp(query):
     conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     cursor = conn.cursor()

@@ -23,7 +23,7 @@ if __name__ == "__main__":
         print(f"{client.user} has connected to Discord!")
         activity = discord.Activity(
             type=discord.ActivityType.listening,
-            name="{} help".format(get_data("prefix")),
+            name="{}help".format(get_data("prefix")),
         )
         await client.change_presence(activity=activity)
 

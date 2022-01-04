@@ -11,7 +11,7 @@ def command_event():
     response = urlopen("https://osc-api.herokuapp.com/api/v1/event/latest")
     event_data = json.loads(response.read())
 
-    event = event_data
+    event = event_data[0]
     embed = discord.Embed(
         title="📢  " + event["eventName"],
         url=event["eventURL"],
@@ -47,5 +47,4 @@ def command_event():
         text=event["eventCaption"], icon_url="https://i.ibb.co/rFv3nXZ/001-like.png"
     )
     response.close()
-    update_eventId(event_data["id"])
     return embed
