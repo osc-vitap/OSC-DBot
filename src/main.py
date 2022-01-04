@@ -27,11 +27,6 @@ if __name__ == "__main__":
         )
         await client.change_presence(activity=activity)
 
-        event_channels = []
-        for channel in data["ChannelID"]["event"]:
-            event_channels.append(client.get_channel(channel))
-        oscEventNotif.start(event_channels)
-
         news_channel = client.get_channel(data["ChannelID"]["news"])
         news_updates.start(news_channel)
 
