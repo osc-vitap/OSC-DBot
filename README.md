@@ -41,7 +41,7 @@ To install and run the bot on your local system, follow below mentioned steps:
 
 Running `main.py` using `python3 main.py` will start the bot.
 
-If you are facing any issues with installation, you can drop a message in our [Discord server](https://discord.link/oscvitap).
+If you are facing any issues with installation, you can drop a message in our [Discord server](https://discord.com/invite/BXqm4PXq5p).
 
 ## Contributing
 
