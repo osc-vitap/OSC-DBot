@@ -9,10 +9,12 @@
 
 ## Table of Contents
 
--   [Motivation](#Motivation)
--   [Installation](#Installation)
--   [Contributing](#Contributing)
--   [License](#License)
+- [OSC-DBot](#osc-dbot)
+  - [Table of Contents](#table-of-contents)
+  - [Motivation](#motivation)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Motivation
 
@@ -31,7 +33,7 @@ OSC-DBot is still in it's initial development stage. So please be patient while 
 
 To install and run the bot on your local system, follow below mentioned steps:
 
--   Do a `git clone https://github.com/SVijayB/OSC-DBot.git`.
+-   Do a `git clone https://github.com/osc-vitap/OSC-DBot.git`.
 -   Once you have the source code downloaded, create a virtual environment to safely download and install dependencies. To do so, use `python3 -m venv venv`, then `source venv/bin/activate` to enter the virtual environment.
 -   Once done, you can install dependencies by using `pip install -r requirements.txt`.
 -   Before running the bot locally, you will need to get yourself a discord bot token. For more information, check out [this guide](https://www.writebots.com/discord-bot-token/).
@@ -39,7 +41,7 @@ To install and run the bot on your local system, follow below mentioned steps:
 
 Running `main.py` using `python3 main.py` will start the bot.
 
-If you are facing any issues with installation, you can drop a message in our [Discord server](https://discord.link/oscvitap).
+If you are facing any issues with installation, you can drop a message in our [Discord server](https://discord.com/invite/BXqm4PXq5p).
 
 ## Contributing
 
