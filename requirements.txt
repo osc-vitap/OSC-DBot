@@ -1,4 +1,4 @@
-﻿aiohttp==3.7.4.post0
+aiohttp==3.7.4.post0
 async-timeout==3.0.1
 attrs==21.2.0
 black==21.10b0
@@ -8,7 +8,7 @@ charset-normalizer==2.0.7
 click==8.0.3
 colorama==0.4.4
 discord.py==1.7.3
-Flask==2.0.2
+Flask==2.3.2
 idna==3.3
 importlib-metadata==4.8.1
 itsdangerous==2.0.1
