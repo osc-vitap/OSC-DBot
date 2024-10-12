@@ -1,0 +1,21 @@
+{
+	"boilerplate code for commands": {
+    "prefix": "c",
+    "body": [
+      "import { type ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'",
+      "import { type CustomClient } from '../../typings'",
+      "",
+      "export const data = new SlashCommandBuilder()",
+      "  .setName('${TM_DIRECTORY/.*\\/(.*)/$1/}')",
+      "",
+      "export async function execute (",
+      "  client: CustomClient,",
+      "  interaction: ChatInputCommandInteraction",
+      "): Promise<void> {",
+      "  await client.handleSubcommands(client, interaction, __dirname)",
+      "  $1",
+      "}"
+    ],
+    "description": "boilerplate code for commands"
+  }
+}
